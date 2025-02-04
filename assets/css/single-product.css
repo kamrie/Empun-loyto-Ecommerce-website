@@ -1,0 +1,43 @@
+
+:root{
+    --background-color: #1d1d1d;
+    --background-light: #fff;
+    --shadow-color: 0 5px 10px rgba(0,0,0,0.1);
+    --primary-color: rgb(38, 0, 255);
+    --text-color: rgb(178, 154, 17);
+    --text-color-orange:  #fb774b;
+    --text-light: #D8D9D8;
+    --font-size: 16px;
+    --animation-speed: 1;
+}
+
+
+
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.small-img-col{
+   flex-basis:25%;  /*It was used to make the small images have the same with and height*/
+   cursor: pointer;
+}
+.single-product input{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.single-product input:focus{
+    outline: none;
+}
+.single-product .buy-btn{
+background-color: var(--text-color-orange);
+opacity: 1;
+transition: 0.4s all;
+}
+.single-product .buy-btn:hover{
+    background-color: var(--background-color) ;
+}
