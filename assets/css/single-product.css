@@ -20,7 +20,7 @@
 }
 
 .small-img-col{
-   flex-basis:25%;  /*It was used to make the small images have the same with and height*/
+   flex-basis:25%;  /*It was used to make the small images have the same width and height*/
    cursor: pointer;
 }
 .single-product input{
