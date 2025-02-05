@@ -280,33 +280,6 @@ footer .copyright img{
    font-size: 1.5rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media only screen and ( max-width: 990px) {
-    .nav-buttons{
-        margin: 10px;
-    }
-    .nav-buttons ul{
-        margin: 1rem;
-       justify-content: flex-start;
-       align-items: flex-start;
-       text-align: left;
-    }
-    .nav-buttons ul .fa-solid{
-        margin: 20px 5px 10px 20px;
-    }
-}
     
 
 
@@ -370,3 +343,64 @@ footer .copyright img{
     text-decoration: none;
 }
 
+/* Orders */
+.orders table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.orders .product-info{
+   display: flex;
+     flex-wrap: wrap;
+}
+.orders th{
+    padding: 5px 10px;
+    color: var(--background-light);
+    background-color: var(--text-color);
+        text-align: left;
+
+}
+.orders th:nth-child(2){
+     text-align: right;
+}
+
+ .orders td{
+    padding: 10px 20px ;
+    text-align:end;
+}
+.orders td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and ( max-width: 990px) {
+    .nav-buttons{
+        margin: 10px;
+    }
+    .nav-buttons ul{
+        margin: 1rem;
+       justify-content: flex-start;
+       align-items: flex-start;
+       text-align: left;
+    }
+    .nav-buttons ul .fa-solid{
+        margin: 20px 5px 10px 20px;
+    }
+}
