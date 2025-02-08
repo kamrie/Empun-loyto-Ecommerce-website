@@ -93,9 +93,13 @@ button:hover{
     margin-left: 5px;
     cursor: pointer;
     transition: 0.4s ease;
+    display: flex;
+}
+.navbar-nav .nav-item{
+    display: flex;
 }
 #home{
-    background-image: url(../imgs/Elegant-Heart-Shape-Butterfly-Stainless-Steel-Asymmetrical-Plating-Bangle.webp) ;
+    background-image: url(../imgs/bangle\ 1.webp) ;
     width: 100% ;
     height: 100vh;
     background-size: cover;
@@ -271,16 +275,14 @@ footer .copyright img{
 
 
 .logo{
-    width: 40px;
-    height: 40px;
+    width: 72px;
+    height: 72epx;
 }
 .navbar .brand{
     color: var(--text-color);
     margin: 3px 5px;
    font-size: 1.5rem;
 }
-
-    
 
 
 /* Login */
@@ -395,7 +397,10 @@ footer .copyright img{
 }
 
 
-
+/* Contact */
+#contact span{
+    color: var(--text-color);
+}
 
 
 
