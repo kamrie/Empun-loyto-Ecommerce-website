@@ -7,9 +7,9 @@
 
  $featured_products =  $stmt->get_result();  //$featured_products variable is an array
 
- $featured_products = $result->fetch_all(MYSQLI_ASSOC); // Fetch as associative array
+//  $featured_products = $featured_products->fetch_all(MYSQLI_ASSOC); // Fetch as associative array
 
- return $featured_products;
+//  return $featured_products;
 
 
 ?>

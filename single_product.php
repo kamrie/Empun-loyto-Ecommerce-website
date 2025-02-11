@@ -1,3 +1,30 @@
+<?php
+
+include("server/connection.php");
+
+   if(isset($_GET['product_id'])){ //get the product id through the Get parameter which is product_id
+    $product_id = $_GET['product_id'];
+    
+    $stmt =  $conn->prepare("SELECT * FROM products WHERE product_id = ? ");  //WHERE product_id = ? means where product_id is unique
+      $stmt->bind_param("i",  $product_id); //i means interger
+
+      $stmt->execute();
+    
+      $product=  $stmt->get_result();  //$featured_products variable is an array
+
+
+   }else{
+      header('location: index.php'); // if we dont have it, take us to the home page
+
+   }
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,38 +77,43 @@
    <!-- Single product -->
   <section class="container single-product my-5 pt-5">
       <div class="row mt-5">
-          <div class="col-lg-5 col-md-6 col-sm-12">
-              <img class="img-fluid w-100 pb-1" src="assets/imgs/featured 1.webp" id="mainImg" alt="">
+        <?php while($row = $product->fetch_assoc()){ ?>
+        
+        <div class="col-lg-5 col-md-6 col-sm-12">
+              <img class="img-fluid w-100 pb-1" src="assets/imgs/<?php echo $row['product_image']; ?>" id="mainImg" alt="">
             <!-- smaller varities to the main products -->
               <div class="small-img-group">
                   <div class="small-img-col">
-                    <img src="/assets/imgs/featured 2.webp" width="100%" class="small-img" alt="">
+                    <img src="/assets/imgs/<?php echo $row['product_image']; ?>" width="100%" class="small-img" alt="">
                   </div>
                   <div class="small-img-col">
-                    <img src="/assets/imgs/featured 3.webp" width="100%" class="small-img" alt="">
+                    <img src="/assets/imgs/<?php echo $row['product_image2']; ?>" width="100%" class="small-img" alt="">
                   </div>
                   <div class="small-img-col">
-                    <img src="/assets/imgs/featured 4.webp" width="100%" class="small-img" alt="">
+                    <img src="/assets/imgs/<?php echo $row['product_image3']; ?>" width="100%" class="small-img" alt="">
                   </div>
                   <div class="small-img-col">
-                    <img src="/assets/imgs/featured 5.webp" width="100%" class="small-img" alt="">
+                    <img src="/assets/imgs/<?php echo $row['product_image4']; ?>" width="100%" class="small-img" alt="">
                   </div>
 
               </div>
-          </div>
+        </div>
+          
           <div class="col-lg-6 col-md-12 col-12">
-              <h6>Men/Shoes</h6>
-              <h3 class="py-4">Men's Fashion</h3>
-              <h2>155$</h2>
+              <h6>Women/Jewelry</h6>
+              <h3 class="py-4"><?php echo $row['product_name']; ?></h3>
+              <h2>$<?php echo $row['product_price']; ?></h2>
               <input type="number" value="1">
               <button class="buy-btn">Add To Cart</button>
               <h4 class="mt-5 mb-5">Product details</h4>
-              <span>The details of this product wil be displayed shortly</span>
-              <span>The details of this product wil be displayed shortly</span>
-              <span>The details of this product wil be displayed shortly</span>
-              <span>The details of this product wil be displayed shortly</span>
-              <span>The details of this product wil be displayed shortly</span>
-              </div>
+              <span>
+                 <?php echo $row['product_description']; ?> 
+              </span>
+              
+          </div>
+
+          <?php } ?>
+
 
       </div>
 

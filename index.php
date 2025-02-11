@@ -119,7 +119,7 @@
              </div>
              <h5 class="p-name"> <?php echo $row['product_name']; ?></h5>
              <h4 class="p-price"> $<?php echo $row['product_price']; ?></h4>
-             <button class="buy-btn"> Buy Now</button>
+              <a href="<?php echo "single_product.php?product_id=" . $row['product_id'];?>"><button class="buy-btn"> Buy Now</button></a> 
           </div>
 
           <?php } ?>
@@ -136,16 +136,20 @@
         </div>
     </section> 
 
-    <!-- clothes -->
+    <!-- Earring Collection -->
     <section id="featured" class="my-5 ">
       <div class="container text-center mt-5 py-5">
-           <h3>Dresses and Coats</h3>
+           <h3>Elegant Earrings Collection</h3>
            <hr class="mx-auto"> <!-- mx-auto centers the line   -->
-           <p>Here you can check out our amazing clothes</p>
+           <p>Explore our stunning collection of handcrafted earring.</p>
       </div>
       <div class="row mx-auto container-fluid">
+       <?php include('server/get_earring.php'); ?>
+
+       <?php while($row = $earring_products->fetch_assoc()){ ?>
+
          <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-            <img class="img-fluid mb-3" src="/assets/imgs/clothes 1.webp" alt="">
+            <img class="img-fluid mb-3" src="/assets/imgs/<?php echo $row['product_image']?>" alt="">
             <div class="star">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
@@ -153,49 +157,12 @@
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
             </div>
-            <h5 class="p-name"> Golden necklace</h5>
-            <h4 class="p-price"> $199.8</h4>
+            <h5 class="p-name"><?php echo $row['product_price']?></h5>
+            <h4 class="p-price"> $<?php echo $row['product_price'] ?></h4>
             <button class="buy-btn"> Buy Now</button>
          </div>
-         <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-           <img class="img-fluid mb-3" src="/assets/imgs/clothes 2.webp" alt="">
-           <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-           </div>
-           <h5 class="p-name"> Golden necklace</h5>
-           <h4 class="p-price"> $199.8</h4>
-           <button class="buy-btn"> Buy Now</button>
-        </div>
-        <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="/assets/imgs/clothes 3.webp" alt="">
-           <div class="star">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-           </div>
-         <h5 class="p-name"> Golden necklace</h5>
-         <h4 class="p-price"> $199.8</h4>
-         <button class="buy-btn"> Buy Now</button>
-       </div>
-         <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-           <img class="img-fluid mb-3" src="/assets/imgs/clothes 4.webp" alt="">
-           <div class="star">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-           </div>
-           <h5 class="p-name"> Golden necklace</h5>
-           <h4 class="p-price"> $199.8</h4>
-           <button class="buy-btn"> Buy Now</button>
-         </div>
+       
+       <?php } ?>  
       </div>
    </section>
 
