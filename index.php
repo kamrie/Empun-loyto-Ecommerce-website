@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mira Bella</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -109,7 +109,7 @@
          <?php while($row=  $featured_products->fetch_assoc()){ ?>
 
           <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-             <img class="img-fluid mb-3" src="/assets/imgs/<?php echo $row['product_image']; ?>" />
+             <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" />
              <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -149,7 +149,7 @@
        <?php while($row = $earring_products->fetch_assoc()){ ?>
 
          <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-            <img class="img-fluid mb-3" src="/assets/imgs/<?php echo $row['product_image']?>" alt="">
+            <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']?>" alt="">
             <div class="star">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
@@ -175,7 +175,7 @@
         </div>
         <div class="row mx-auto container-fluid">
            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class="img-fluid mb-3" src="/assets/imgs/watch 1.webp" alt="">
+              <img class="img-fluid mb-3" src="assets/imgs/watch 1.webp" alt="">
               <div class="star">
                  <i class="fas fa-star"></i>
                  <i class="fas fa-star"></i>
@@ -188,7 +188,7 @@
               <button class="buy-btn"> Buy Now</button>
            </div>
            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-             <img class="img-fluid mb-3" src="/assets/imgs/clothes 1.webp" alt="">
+             <img class="img-fluid mb-3" src="assets/imgs/clothes 1.webp" alt="">
              <div class="star">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -201,7 +201,7 @@
              <button class="buy-btn"> Buy Now</button>
           </div>
           <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-            <img class="img-fluid mb-3" src="/assets/imgs/watch 3.webp" alt="">
+            <img class="img-fluid mb-3" src="assets/imgs/watch 3.webp" alt="">
              <div class="star">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
@@ -214,7 +214,7 @@
            <button class="buy-btn"> Buy Now</button>
          </div>
            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-             <img class="img-fluid mb-3" src="/assets/imgs/watch 4.avif" alt="">
+             <img class="img-fluid mb-3" src="assets/imgs/watch 4.avif" alt="">
              <div class="star">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>

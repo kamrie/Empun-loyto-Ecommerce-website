@@ -32,8 +32,8 @@ include("server/connection.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mira Bella</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/single-product.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/single-product.css">
 
 </head>
 <body>
@@ -84,16 +84,16 @@ include("server/connection.php");
                 <!-- smaller varities to the main products -->
                   <div class="small-img-group">
                       <div class="small-img-col">
-                        <img src="/assets/imgs/<?php echo $row['product_image']; ?>" width="100%" class="small-img" alt="">
+                        <img src="assets/imgs/<?php echo $row['product_image']; ?>" width="100%" class="small-img" alt="">
                       </div>
                       <div class="small-img-col">
-                        <img src="/assets/imgs/<?php echo $row['product_image2']; ?>" width="100%" class="small-img" alt="">
+                        <img src="assets/imgs/<?php echo $row['product_image2']; ?>" width="100%" class="small-img" alt="">
                       </div>
                       <div class="small-img-col">
-                        <img src="/assets/imgs/<?php echo $row['product_image3']; ?>" width="100%" class="small-img" alt="">
+                        <img src="assets/imgs/<?php echo $row['product_image3']; ?>" width="100%" class="small-img" alt="">
                       </div>
                       <div class="small-img-col">
-                        <img src="/assets/imgs/<?php echo $row['product_image4']; ?>" width="100%" class="small-img" alt="">
+                        <img src="assets/imgs/<?php echo $row['product_image4']; ?>" width="100%" class="small-img" alt="">
                       </div>
 
                   </div>
@@ -140,7 +140,7 @@ include("server/connection.php");
       </div>
       <div class="row mx-auto container-fluid">
          <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-            <img class="img-fluid mb-3" src="/assets/imgs/featured 1.webp" alt="">
+            <img class="img-fluid mb-3" src="assets/imgs/featured 1.webp" alt="">
             <div class="star">
                <i class="fas fa-star"></i>
                <i class="fas fa-star"></i>
@@ -153,7 +153,7 @@ include("server/connection.php");
             <button class="buy-btn"> Buy Now</button>
          </div>
          <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-           <img class="img-fluid mb-3" src="/assets/imgs/featured 2.webp" alt="">
+           <img class="img-fluid mb-3" src="assets/imgs/featured 2.webp" alt="">
            <div class="star">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
@@ -166,7 +166,7 @@ include("server/connection.php");
            <button class="buy-btn"> Buy Now</button>
         </div>
         <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="/assets/imgs/featured 3.webp" alt="">
+          <img class="img-fluid mb-3" src="assets/imgs/featured 3.webp" alt="">
            <div class="star">
              <i class="fas fa-star"></i>
              <i class="fas fa-star"></i>
@@ -179,7 +179,7 @@ include("server/connection.php");
          <button class="buy-btn"> Buy Now</button>
        </div>
          <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-           <img class="img-fluid mb-3" src="/assets/imgs/featured 4.webp" alt="">
+           <img class="img-fluid mb-3" src="assets/imgs/featured 4.webp" alt="">
            <div class="star">
              <i class="fas fa-star"></i>
              <i class="fas fa-star"></i>
@@ -276,6 +276,6 @@ include("server/connection.php");
     
     <script src="https://kit.fontawesome.com/5936339753.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="/assets/js/singleProduct.js" ></script>
+    <script src="assets/js/singleProduct.js" ></script>
 </body>
 </html>
