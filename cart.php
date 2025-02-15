@@ -1,3 +1,77 @@
+<!-- <?php
+  
+  session_start();
+  if(isset($_POST['add_to_cart'])){ //checked if the user came to this page through clicking of the button
+               //if user has already added a product to the cart before, then more should be added
+          if(isset($_SESSION['cart'])){  
+        
+                $product_array_ids = array_column($_SESSION['cart'], "product_id"); //returns array with all product IDs that have been added to the cart, if you pass the $_SESSION to it, you pass the session you are interested in which in this case is product_id //[2,3,4,5,6]
+          
+                if( !in_array($_POST['product_id'], $product_array_ids )) { //if product has already been added to cart or not
+                    
+
+                        // $product_id =  $_POST['product_id'];
+                        // $product_name =  $_POST['product_name'];
+                        // $product_price =  $_POST['product_price'];
+                        // $product_image =  $_POST['product_image'];
+                        // $product_quantity =  $_POST['product_quantity'];
+                      //I took the data from the single_product.php page and fetched them here from the POST request and added them to a seperate variable, then collected using the array below
+                        $product_array = array(
+                                        'product_id' => $_POST['product_id'],
+                                        'product_name' => $_POST['product_name'],
+                                        'product_price' =>$_POST['product_price'],
+                                        'product_image' => $_POST['product_image'],
+                                        'product_quantity' =>  $_POST['product_quantity']
+                        );
+              
+                      $_SESSION['cart'][$product_id] = $product_array ;
+                            //[ 2=>[], 3=>[]]
+
+                              //Here check if the new product is one of the products the user has already added to the cart, if not it cant be added again so this triggers the else below
+                }else{
+                  
+                  echo '<script>alert("Prooduct was already added to Cart")</script>';  //if user has already added product to cart
+                    // echo '<script> window.location="index.php";</script>';
+                } 
+    
+          
+
+          }else{           //If this is the first product that the are attempting to add, Its gonna initiate the session, so we need to create the session from scratch 
+
+                  $product_id =  $_POST['product_id'];
+                  $product_name =  $_POST['product_name'];
+                  $product_price =  $_POST['product_price'];
+                  $product_image =  $_POST['product_image'];
+                  $product_quantity =  $_POST['product_quantity'];
+              //I took the data from the single_product.php page and fetched them here from the POST request and added them to a seperate variable, then collected using the array below
+                  $product_array = array(
+                                    'product_id' => $product_id,
+                                    'product_name' => $product_name,
+                                    'product_price' => $product_price,
+                                    'product_image' => $product_image,
+                                    'product_quantity' => $product_quantity
+                  );  //this array that was used to collect the parameters above was added to the session below
+
+                  $_SESSION['cart'][$product_id] = $product_array ; //the session is a big arra and inside it we have KEY value pairs with KEY being the productID and VALUE being the array itself  like this                         // [ 2=>[], 3=>[], ]
+
+
+          }
+  }else{
+      header('location: index.php');
+  }
+ 
+
+
+?> -->
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,79 +135,36 @@
                 <th>Product</th>
                 <th>Quantity</th>
                 <th>Subtotal</th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="/assets/imgs/featured 1.webp" alt="">
-                        <div>
-                            <p>White Bangles </p>
-                            <small><span>$</span>155</small>
-                            <br>
-                            <a class="remove-btn" href="">Remove</a>
-                        </div>
-                    </div>
-                </td>
-
-                <td>
-                    <input type="number" value="1">
-                    <a href="" class="edit-btn">Edit</a>
-                </td>
-
-                <td>
-                    <span>$</span>
-                    <span class="product-price">155</span>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="/assets/imgs/featured 1.webp" alt="">
-                        <div>
-                            <p>White Bangles </p>
-                            <small><span>$</span>155</small>
-                            <br>
-                            <a class="remove-btn" href="">Remove</a>
-                        </div>
-                    </div>
-                </td>
-
-                <td>
-                    <input type="number" value="1">
-                    <a href="" class="edit-btn">Edit</a>
-                </td>
-
-                <td>
-                    <span>$</span>
-                    <span class="product-price">155</span>
-                </td>
-            </tr>
+            </tr> 
 
 
-            <tr>
-                <td>
-                    <div class="product-info">
-                        <img src="/assets/imgs/featured 1.webp" alt="">
-                        <div>
-                            <p>White Bangles </p>
-                            <small><span>$</span>155</small>
-                            <br>
-                            <a class="remove-btn" href="">Remove</a>
-                        </div>
-                    </div>
-                </td>
+            <?php foreach($_SESSION['cart'] as $key => $value){ ?>
+              <tr>
+                  <td>
+                      <div class="product-info">
+                          <img src="/assets/imgs/<?php echo $value['product_image']; ?>"/>
+                          <div>
+                              <p> <?php echo $value['product_name']; ?> </p>
+                              <small><span>$</span> <?php echo $value['product_price']; ?></small>
+                              <br>
+                              <a class="remove-btn" href="">Remove</a>
+                          </div>
+                      </div>
+                  </td>
 
-                <td>
-                    <input type="number" value="1">
-                    <a href="" class="edit-btn">Edit</a>
-                </td>
+                  <td>
+                      <input type="number" value="<?php echo $value["product_quantity"] ?>"/>
+                      <a href="" class="edit-btn">Edit</a>
+                  </td>
 
-                <td>
-                    <span>$</span>
-                    <span class="product-price">155</span>
-                </td>
-            </tr>
+                  <td>
+                      <span>$</span>
+                      <span class="product-price">155</span>
+                  </td>
+              </tr>
+
+            <?php } ?>
+
         </table>
        
 
