@@ -33,8 +33,8 @@
               </li>
 
               <li class="nav-item">
-                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
-                <a href="account.html"><i class="fa-solid fa-user"></i></a>
+                <a href="cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
+                <a href="account.php"><i class="fa-solid fa-user"></i></a>
               </li>
             
             </ul>

@@ -1,6 +1,6 @@
 <?php
-
 include("server/connection.php");
+session_start();
 
    if(isset($_GET['product_id'])){ //get the product id through the Get parameter which is product_id
     $product_id = $_GET['product_id'];
@@ -105,7 +105,7 @@ include("server/connection.php");
                 <h2>$<?php echo $row['product_price']; ?></h2>
 
 
-                <form method="POST" action="cart.php">
+                <form method="POST" action="actions/add-to-cart.php">
                     <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>" />
                     <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>" />
                     <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>" />
