@@ -16,7 +16,10 @@
                         // $product_image =  $_POST['product_image'];
                         // $product_quantity =  $_POST['product_quantity'];
                       //I took the data from the single_product.php page and fetched them here from the POST request and added them to a seperate variable, then collected using the array below
-                        $product_array = array(
+                  
+                      $product_id = $_POST['product_id'];
+                      
+                      $product_array = array(
                                         'product_id' => $_POST['product_id'],
                                         'product_name' => $_POST['product_name'],
                                         'product_price' =>$_POST['product_price'],
@@ -79,8 +82,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mira Bella</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/cart.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/cart.css">
 </head>
 <body>
 

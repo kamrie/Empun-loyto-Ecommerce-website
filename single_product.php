@@ -32,8 +32,8 @@ include("server/connection.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mira Bella</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/single-product.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/single-product.css">
 
 </head>
 <body>
@@ -114,7 +114,7 @@ include("server/connection.php");
                     <input type="number" name="product_quantity" value="1">
                     <button class="buy-btn" type="submit" name="add_to_cart">Add To Cart</button>
                  </form>   
-                 
+
                 <h4 class="mt-5 mb-5">Product details</h4>
                 <span>
                   <?php echo $row['product_description']; ?> 
