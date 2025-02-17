@@ -8,15 +8,15 @@
     }
 
 
-    function calculateTotal(){
-      $total = 0;
+    // function calculateTotal(){
+    //   $total = 0;
     
-      foreach ($_SESSION['cart'] as $item){ //when we do this, each $item automatically represents the Inner array (the product details) rather than the product ID itself,  IF You Want to Access $product_id Too,  you should loop with both key and value like this:  foreach ($_SESSION['cart'] as $product_id => $item).
-        $total += $item['product_price'] * $item['product_quantity'];
-      }
+    //   foreach ($_SESSION['cart'] as $item){ //when we do this, each $item automatically represents the Inner array (the product details) rather than the product ID itself,  IF You Want to Access $product_id Too,  you should loop with both key and value like this:  foreach ($_SESSION['cart'] as $product_id => $item).
+    //     $total += $item['product_price'] * $item['product_quantity'];
+    //   }
     
-      return $total;
-    }
+    //   return $total;
+    // }
 
 
 ?>
@@ -78,7 +78,7 @@
             <hr class="mx-auto">
         </div>
         <div class="mx-auto container">
-            <form action="place_order.php" method="POST"  id="checkout-form">
+            <form action="server/place_order.php" method="POST"  id="checkout-form">
                 <div class="form-group checkout-small-element">
                     <label for="">Name</label>
                     <input type="text" class="form-control" id="checkout-name" name="name" placeholder="Name" required>
@@ -100,7 +100,7 @@
                     <input type="text" class="form-control" id="checkout-address" name="address" placeholder="Address" required>
                 </div>
                 <div class="form-group checkout-btn-container">
-                    <p><strong>Total Amount: $<?php echo calculateTotal() ; ?></strong></p>
+                    <p><strong>Total Amount: $<?php echo  $_SESSION['total']  ; ?></strong></p>
                     <input type="submit" class="btn" id="checkout-btn" name="place_order" value="Place Order">
                 </div>
                

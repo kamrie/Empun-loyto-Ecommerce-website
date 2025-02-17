@@ -9,7 +9,9 @@ function calculateTotal(){
     $total += $item['product_price'] * $item['product_quantity'];
   }
 
-  return $total;
+  $_SESSION['total'] = $total;
+  
+  return $_SESSION['total'] ;
 }
 
 // Function to display the cart
