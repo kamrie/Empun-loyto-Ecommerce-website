@@ -111,7 +111,7 @@ session_start();
                     <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>" />
                     <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>" />
                     
-                    <input type="number" name="product_quantity" value="1">
+                    <input type="number" name="product_quantity" value="1" min='0'>
                     <button class="buy-btn" type="submit" name="add_to_cart">Add To Cart</button>
                  </form>   
 

@@ -4,7 +4,7 @@ session_start();
 // Function to update item quantity
 function updateCart($product_id, $product_quantity) {
     if (isset($_SESSION['cart'][$product_id])) {
-        $_SESSION['cart'][$product_id]['product_quantity'] = $product_quantity;
+        $_SESSION['cart'][$product_id]['product_quantity'] = $product_quantity; // Update the product quantity, the old product quantity = new product quantity
     }
 }
 

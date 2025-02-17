@@ -5,7 +5,7 @@ session_start();
 function calculateTotal(){
   $total = 0;
 
-  foreach ($_SESSION['cart'] as $item){
+  foreach ($_SESSION['cart'] as $item){ //when we do this, each $item automatically represents the Inner array (the product details) rather than the product ID itself,  IF You Want to Access $product_id Too,  you should loop with both key and value like this:  foreach ($_SESSION['cart'] as $product_id => $item).
     $total += $item['product_price'] * $item['product_quantity'];
   }
 
@@ -21,6 +21,7 @@ function displayCart() {
 
     echo "<table border='1'>
             <tr>
+                <th>Images</th>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity</th>
@@ -29,6 +30,7 @@ function displayCart() {
     
     foreach ($_SESSION['cart'] as $product_id => $item) {
         echo "<tr>
+                 <td> <img src='assets/imgs/{$item['product_image']} ' />  </td>
                 <td>{$item['product_name']}</td>
                 <td>\${$item['product_price']}</td>
                 <td>{$item['product_quantity']}</td>
@@ -49,6 +51,15 @@ function displayCart() {
     echo "</table>";
     echo "<p><strong>Total: $" . calculateTotal() . "</strong></p>";
     echo "<a href='actions/clear-cart.php'>Clear Cart</a>";
+    
+    echo "<br><br>     <form method='POST' action='checkout.php'>
+                           <button type='submit' name='checkout' style='padding: 10px 20px; background: rgb(178, 154, 17); color: white; text-decoration: none; border-radius: 5px;float: right;'>
+                               Proceed to Checkout
+                           </button>
+                       </form> ";
+
+
+
 }
 
 ?>
@@ -135,9 +146,11 @@ function displayCart() {
            </table>
         </div> -->
 
-        <div class="checkout-container">
-            <button class="btn checkout-btn">Checkout</button>
-        </div>
+        <!-- <div class="checkout-container">
+            <button class="btn checkout-btn">
+              <span>Checkout</span> 
+            </button>
+        </div> -->
      </section>
 
 
