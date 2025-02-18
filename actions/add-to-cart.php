@@ -14,6 +14,7 @@ session_start();
 
       }else{   //update the session with a new product through its product_id
         $_SESSION['cart'][$product_id] = [
+            'product_id'   => $product_id,  //added the product id key here so It can be inserted into the database in place_order.php
             'product_name' => $product_name,
             'product_price' => $product_price,
             'product_image' => $product_image,
