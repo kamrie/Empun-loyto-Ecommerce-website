@@ -10,9 +10,8 @@
 <body>
 
 
-
-   <!-- Navbar -->
-   <nav class="navbar navbar-expand-lg bg-white py-3 fixed-top ">
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg bg-white py-3 fixed-top ">
     <div class="container">
      <img src="assets/imgs/Empun logo.jpg" class="logo" alt="">
      <h2 class="brand"> Mira Bella</h2>
@@ -44,30 +43,38 @@
        
       </div>
     </div>
-  </nav>
+</nav>
 
 
-     <!-- login -->
+     <!-- Register -->
     <section class="my-5 py-5">
         <div class="container text-center mt-3 pt-5">
-            <h2 class="form-weight-bold">Login</h2>
+            <h2 class="form-weight-bold">Register</h2>
             <hr class="mx-auto">
         </div>
         <div class="mx-auto container">
-            <form action="" id="login-form">
+            <form action="" id="register-form">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" id="register-name" name="name" placeholder="Name" required>
+                </div>
                 <div class="form-group">
                     <label for="">Email</label>
-                    <input type="text" class="form-control" id="login-email" name="email" placeholder="Email" required>
+                    <input type="text" class="form-control" id="Register-email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
                     <label for="">Password</label>
-                    <input type="password" class="form-control" id="login-password" name="password" placeholder="Password" required>
+                    <input type="password" class="form-control" id="register-password" name="password" placeholder="Password" required>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn" id="login-btn" value="Login">
+                    <label for="">Confirm Password</label>
+                    <input type="password" class="form-control" id="register-confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
                 </div>
                 <div class="form-group">
-                   <a id="register-url" class="btn" href="">Dont have account ? Register</a>
+                    <input type="submit" class="btn" id="register-btn" value="Register">
+                </div>
+                <div class="form-group">
+                   <a id="login-url" class="btn" href="">Don you have account ? Login</a>
                 </div>
             </form>
         </div>

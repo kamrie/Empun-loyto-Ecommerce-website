@@ -1,7 +1,7 @@
 <?php
     session_start();
-    if( !empty($_SESSION['cart']) && isset($_POST['checkout'])) {
-      echo "<p>Your cart is empty. <a href='index.php'>Continue Shopping</a></p>";
+    if( !empty($_SESSION['cart']) && isset($_POST['checkout'])) {   //if the session is not empty and it user came to the checkout page throught the checkout button or through an external link
+      // echo "<p>Your cart is empty. <a href='index.php'>Continue Shopping</a></p>";
     }else{
 
       header('location: index.php');
@@ -59,7 +59,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+                <a href="cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
                 <a href="account.html"><i class="fa-solid fa-user"></i></a>
               </li>
             

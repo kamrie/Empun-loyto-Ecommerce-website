@@ -25,12 +25,13 @@
 
          $stmt->execute();
 
+    //2.ISSUE NEW ORDER AND STORE ORDER INFO IN DATABASE
           $order_id = $stmt->insert_id; //I called insert_id because I needed to use the order_id immediately (for inserting order_items), normally, ID's generate automatically.
        
         
 
         
- //2.GET PRODUCTS FROM CART (from SESSION) to insert it in order_items
+ //3.GET PRODUCTS FROM CART (from SESSION) to insert it in order_items
 
         $_SESSION['cart'] ; // [ 4=>[], 5 =>[] ]
         
@@ -50,6 +51,7 @@
             $product_image = $product['product_image'];
             $product_quantity = $product['product_quantity'];   
 
+   //4.STORE EACH SINGLE ITEM IN order_items DATABASE
          $stmt1   =  $conn->prepare("INSERT INTO order_items (order_id, product_id, product_name, product_image,product_price,product_quantity, user_id, order_date)
                           VALUES (?,?,?,?,?,?,?,?) ");
          
@@ -60,20 +62,19 @@
 
 
 
-          //3. issue new order and  store order info in database
-
-
-          //4. store each single item in order_items database
 
 
 
 
 
-          //5. remove everything from cart
 
 
-          //6. inform user whether everything is fine or there is a problem
+   //5. REMOVE EVERYTHING FROM CART --> delay until payment is done
+            //  unset($_SESSION['cart']);
 
+
+    //6. inform user whether everything is fine or there is a problem and take user to payment page
+       header('location: ../payment.php?order_status=order placed successfully');     //order_status after ? is a GET parameter that will be fetch in payment.php page like $_GET['order_status'] to display "order placed successfully"
 
    }
 

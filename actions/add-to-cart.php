@@ -21,7 +21,7 @@ session_start();
             'product_quantity' => $product_quantity,
         ];
 
-      // For eg  $_SESSION['cart'] = [
+      // For eg of how it could appear $_SESSION['cart'] = [
       //     101 => [
       //         'product_name' => 'earing',
       //         'product_price' => 500,

@@ -1,3 +1,24 @@
+<?php
+    session_start();
+  
+
+
+    // function calculateTotal(){
+    //   $total = 0;
+    
+    //   foreach ($_SESSION['cart'] as $item){ //when we do this, each $item automatically represents the Inner array (the product details) rather than the product ID itself,  IF You Want to Access $product_id Too,  you should loop with both key and value like this:  foreach ($_SESSION['cart'] as $product_id => $item).
+    //     $total += $item['product_price'] * $item['product_quantity'];
+    //   }
+    
+    //   return $total;
+    // }
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,75 +29,53 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg bg-white py-3 fixed-top ">
+        <div class="container">
+         <img src="assets/imgs/Empun logo.jpg" class="logo" alt="">
+         <h2 class="brand"> Mira Bella</h2>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop.html">Shop</a>
+              </li>  
+              <li class="nav-item">   
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
+                <a href="account.html"><i class="fa-solid fa-user"></i></a>
+              </li>
+            
+            </ul>
+           
+          </div>
+        </div>
+    </nav>
 
 
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg bg-white py-3 fixed-top ">
-    <div class="container">
-     <img src="assets/imgs/Empun logo.jpg" class="logo" alt="">
-     <h2 class="brand"> Mira Bella</h2>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="shop.html">Shop</a>
-          </li>  
-          <li class="nav-item">   
-            <a class="nav-link" href="#">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact Us</a>
-          </li>
 
-          <li class="nav-item">
-            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
-            <a href="account.html"><i class="fa-solid fa-user"></i></a>
-          </li>
-        
-        </ul>
-       
-      </div>
-    </div>
-</nav>
-
-
-     <!-- Register -->
-    <section class="my-5 py-5">
+    <!--Payment -->
+       <section class="my-5 py-5">
         <div class="container text-center mt-3 pt-5">
-            <h2 class="form-weight-bold">Register</h2>
+            <h2 class="form-weight-bold">Payment</h2>
             <hr class="mx-auto">
         </div>
-        <div class="mx-auto container">
-            <form action="" id="register-form">
-                <div class="form-group">
-                    <label for="">Name</label>
-                    <input type="text" class="form-control" id="register-name" name="name" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="">Email</label>
-                    <input type="text" class="form-control" id="Register-email" name="email" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <label for="">Password</label>
-                    <input type="password" class="form-control" id="register-password" name="password" placeholder="Password" required>
-                </div>
-                <div class="form-group">
-                    <label for="">Confirm Password</label>
-                    <input type="password" class="form-control" id="register-confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn" id="register-btn" value="Register">
-                </div>
-                <div class="form-group">
-                   <a id="login-url" class="btn" href="">Don you have account ? Login</a>
-                </div>
-            </form>
+        <div class="mx-auto container text-center">
+            <p><?php  echo $_GET['order_status']?> </p>
+            <p>Total payment: $<?php echo $_SESSION['total']; ?></p>
+            <input class="btn btn-primary" type="submit" value="Pay Now">
         </div>
     </section>
 
@@ -85,9 +84,13 @@
 
 
 
+
+
+
+
     
      <!-- footer -->
-     <footer class="mt-5 py-5">
+    <footer class="mt-5 py-5">
         <div class="row container mx-auto pt-5">
              <div class=" footer-one col-lg-3 col-md-6 col-sm-12">
                   <img class="logo" src="assets/imgs/Empun logo.jpg" class="img-fluid" alt="">
@@ -153,7 +156,7 @@
         </div>
     </footer>
 
-    <script src="https://kit.fontawesome.com/5936339753.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/5936339753.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

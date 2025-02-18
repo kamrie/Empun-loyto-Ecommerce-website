@@ -55,9 +55,8 @@ function displayCart() {
     echo "<a href='actions/clear-cart.php'>Clear Cart</a>";
     
     echo "<br><br>     <form method='POST' action='checkout.php'>
-                           <button type='submit' name='checkout' style='padding: 10px 20px; background: rgb(178, 154, 17); color: white; text-decoration: none; border-radius: 5px;float: right;'>
-                               Proceed to Checkout
-                           </button>
+                           <input type='submit' name='checkout' value='Proceed to checkout' style='padding: 10px 20px; background: rgb(178, 154, 17); color: white; text-decoration: none; border-radius: 5px;float: right;'>
+
                        </form> ";
 
 
@@ -99,7 +98,7 @@ function displayCart() {
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="shop.html">Shop</a>
@@ -112,7 +111,7 @@ function displayCart() {
               </li>
 
               <li class="nav-item">
-                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+                <a href="cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
                 <a href="account.html"><i class="fa-solid fa-user"></i></a>
               </li>
             
