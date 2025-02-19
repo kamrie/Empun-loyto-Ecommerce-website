@@ -1,3 +1,10 @@
+<?php
+    
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +32,7 @@
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-          <li class="nav-item">
+          <li style="color: red;" class="nav-item">
             <a class="nav-link" href="shop.html">Shop</a>
           </li>  
           <li class="nav-item">   
@@ -54,7 +61,7 @@
             <hr class="mx-auto">
         </div>
         <div class="mx-auto container">
-            <form action="" id="login-form">
+            <form action="login.php" method="POST" id="login-form">
                 <div class="form-group">
                     <label for="">Email</label>
                     <input type="text" class="form-control" id="login-email" name="email" placeholder="Email" required>
@@ -64,7 +71,7 @@
                     <input type="password" class="form-control" id="login-password" name="password" placeholder="Password" required>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn" id="login-btn" value="Login">
+                    <input type="submit" class="btn"name="login_btn" id="login-btn" value="Login">
                 </div>
                 <div class="form-group">
                    <a id="register-url" class="btn" href="">Dont have account ? Register</a>
