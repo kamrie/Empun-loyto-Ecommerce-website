@@ -1,5 +1,51 @@
 <?php
+    session_start();
+
+    include('server/connection.php');
+
     
+   if(isset($_SESSION['logged_in'])){  //if user is logged-in, they
+        header('location: account.php');
+        exit;
+   }
+
+    
+    if(isset($_POST['login_btn'])){
+        $email=   $_POST['email'] ;
+        $password = md5($_POST['password']);
+        
+        $stmt =  $conn->prepare("SELECT user_id,user_name,user_email,user_password FROM users WHERE user_email = ? AND user_password = ? LIMIT 1 ");
+       
+        $stmt->bind_param('ss', $email, $password);
+
+        if($stmt->execute()){
+            $stmt->bind_result($user_id,$user_name,$user_email,$user_password);
+            $stmt->store_result();
+
+              if($stmt->num_rows() == 1){ //if we have only one user
+                  $stmt->fetch();
+
+                  $_SESSION['user_id'] = $user_id;
+                  $_SESSION['user_name'] = $user_name;
+                  $_SESSION['user_email'] = $user_email;
+                  $_SESSION['logged_in'] = true;
+
+                  //incase of success...
+                  header('location: account.php?messgage=logged in successfully');
+
+              }else{
+                   header('location: login.php?error=could not verify your account');
+
+              }
+
+        }else{
+             //error
+             header('location: login.php?error=something went wrong');
+        }
+
+
+
+    }
 ?>
 
 
@@ -61,6 +107,8 @@
             <hr class="mx-auto">
         </div>
         <div class="mx-auto container">
+           <p style="color:red" class="text-center"> <?php if(isset($_GET['error'])){ echo $_GET['error'];} ?> </p>
+
             <form action="login.php" method="POST" id="login-form">
                 <div class="form-group">
                     <label for="">Email</label>
@@ -74,7 +122,7 @@
                     <input type="submit" class="btn"name="login_btn" id="login-btn" value="Login">
                 </div>
                 <div class="form-group">
-                   <a id="register-url" class="btn" href="">Dont have account ? Register</a>
+                   <a id="register-url" href="register.php" class="btn" >Dont have account ? Register</a>
                 </div>
             </form>
         </div>
