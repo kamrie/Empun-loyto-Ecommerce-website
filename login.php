@@ -14,15 +14,14 @@
         $email=   $_POST['email'] ;
         $password = md5($_POST['password']);
         
-        $stmt =  $conn->prepare("SELECT user_id,user_name,user_email,user_password FROM users WHERE user_email = ? AND user_password = ? LIMIT 1 ");
-       
+        $stmt =  $conn->prepare("SELECT user_id,user_name,user_email,user_password FROM users WHERE user_email = ? AND user_password = ? LIMIT 1 "); //SELECT * fetches all columns from the users table, even the ones that are not needed.
         $stmt->bind_param('ss', $email, $password);
 
         if($stmt->execute()){
-            $stmt->bind_result($user_id,$user_name,$user_email,$user_password);
+            $stmt->bind_result($user_id,$user_name,$user_email,$user_password); // Binds database columns to PHP variables.
             $stmt->store_result();
 
-              if($stmt->num_rows() == 1){ //if we have only one user
+              if($stmt->num_rows == 1){ //if we have only one user
                   $stmt->fetch();
 
                   $_SESSION['user_id'] = $user_id;
@@ -31,7 +30,7 @@
                   $_SESSION['logged_in'] = true;
 
                   //incase of success...
-                  header('location: account.php?messgage=logged in successfully');
+                  header('location: account.php?login_success=logged in successfully');
 
               }else{
                    header('location: login.php?error=could not verify your account');
@@ -42,9 +41,6 @@
              //error
              header('location: login.php?error=something went wrong');
         }
-
-
-
     }
 ?>
 

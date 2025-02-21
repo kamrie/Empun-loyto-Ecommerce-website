@@ -16,7 +16,7 @@
               $address = $_POST['address'];
               $order_cost = $_SESSION['total']; //  $_SESSION['total'] is where the total was stored
               $order_status = "on_hold";
-              $user_id = 1 ;
+              $user_id = $_SESSION['user_id'] ;
               $order_date = date('Y-m-d H:i:s');
 
         $stmt =   $conn->prepare("INSERT INTO orders (order_cost, order_status, user_id, user_phone, user_city, user_address, order_date) 

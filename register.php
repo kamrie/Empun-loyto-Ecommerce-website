@@ -28,10 +28,10 @@ if(isset($_POST['register'])){
       
         }else{ 
           //check whether there is a user with this email or not
-                $stmt1= $conn->prepare("SELECT count(*) FROM users where user_email=?");
+                $stmt1= $conn->prepare("SELECT count(*) FROM users where user_email=?"); //count(*) counts how many users exist with that email, (returns 0 or 1.
               $stmt1->bind_param('s', $email);
               $stmt1->execute();
-              $stmt1->bind_result($num_rows);
+              $stmt1->bind_result($num_rows);  //$num_rows stores that count (not actual user data).
               $stmt1->store_result();
               $stmt1->fetch();
 
@@ -47,12 +47,16 @@ if(isset($_POST['register'])){
 
                       $stmt->bind_param('sss', $name,$email,md5($password)); //md5() hashes the password
 
+
                       //if account was created successfully
                       if($stmt->execute()){
-                              $_SESSION['user_email'] =$email;
+
+                             $user_id = $stmt->insert_id; //I called insert_id because I needed to insert the user_id in the session
+                             $_SESSION['user_id'] =$user_id; //will be assigned to the user_id variable in place_order.php under orders table
+                             $_SESSION['user_email'] =$email;
                               $_SESSION['user_name'] =$name;
                               $_SESSION['logged_in'] = true;
-                            header('location: account.php?register=You registered successfully');
+                            header('location: account.php?register_success=You registered successfully');
                     
                       }else{ //account could not be created
                               header('location: register.php?error=could not create an accout at the moment');
