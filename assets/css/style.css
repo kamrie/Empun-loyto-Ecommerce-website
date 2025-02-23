@@ -346,6 +346,10 @@ footer .copyright img{
 }
 
 /* Orders */
+
+#orders {
+    padding-bottom: 8rem;
+}
 .orders table{
     width: 100%;
     border-collapse: collapse;
@@ -358,11 +362,11 @@ footer .copyright img{
     padding: 5px 10px;
     color: var(--background-light);
     background-color: var(--text-color);
-        text-align: left;
+     text-align: right;
 
 }
 .orders th:nth-child(2){
-     text-align: right;
+     /* text-align: right; */
 }
 
  .orders td{
@@ -373,6 +377,11 @@ footer .copyright img{
     width: 80px;
     height: 80px;
     margin-right: 10px;
+}
+.orders .order-details-btn{
+    color: var(--background-light);
+    background-color: var(--text-color);
+
 }
 
 

@@ -45,6 +45,18 @@
             }
    }
 
+   //get orders
+   if(isset($_SESSION['logged_in'])){
+       $user_id = $_SESSION['user_id'];   
+
+        $stmt = $conn->prepare("SELECT * FROM orders WHERE user_id=? ");
+        $stmt->bind_param('i',  $user_id  );
+
+        $stmt->execute();
+
+        $orders = $stmt->get_result();
+
+   }
 ?>
 
 
@@ -151,7 +163,7 @@
 
 
    <!-- Orders -->
-   <section id="orders" class="orders container my-5 py-3">
+  <section id="orders" class="orders container my-5 py-3">
     <div class="container mt-2">
         <h2 class="font-weight-bold text-center">Your Orders</h2>
         <hr class="mx-auto">
@@ -159,31 +171,62 @@
 
     <table class="mt-5 pt-5">
         <tr>
-            <th>Product</th>
-            <th>Date</th>
-        </tr>
- <!--  -->
-        <tr>
-            <td>
-               <div class="product-info">
-                    <img src="assets/imgs/featured 1.webp" alt="">
-                    <div>
-                        <p class="mt-3">White Jewelry</p>
-                    </div>
-               </div>
-            </td>
+            <th>Order id</th>
+            <th>Order Cost</th>
+            <th>Order status</th>
+            <th>Order Date</th>
+            <th>Order Details</th>
 
-            <td>
-                <span>2036-5-8</span>
-            </td>
-        </tr>      
+        </tr>
+     <!--  -->
+
+        <?php while($row = $orders->fetch_assoc()){ ?>
+            <tr>
+                <td>
+                    <!-- <div class="product-info">
+                            <img src="assets/imgs/featured 1.webp" alt="">
+                            <div>
+                                <p class="mt-3"><?php echo $row['order_id'];?></p>
+                            </div>
+                    </div> -->
+                    <span>
+                        <p class="mt-3"><?php echo $row['order_id'];?></p>
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <p class="mt-3"><?php echo $row['order_cost'];?></p>
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <p class="mt-3"><?php echo $row['order_status'];?></p>
+                    </span>
+                </td>
+                <td>
+                    <span>
+                        <p class="mt-3"><?php echo $row['order_date'];?></p>
+                    </span>
+                </td>
+                <td>
+                    <form method="POST" action="order_details.php">
+                        <input type="hidden" value="<?php echo $row['order_id'];?>" name="order_id">
+                        <input class="btn order-details-btn" type="submit" name="order_details_btn" value="details">
+                     </form>
+                </td>
+
+
+               
+            </tr>      
+
+        <?php } ?>    
     </table>
    
 
    
 
     
- </section>
+  </section>
 
 
 
