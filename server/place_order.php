@@ -15,7 +15,7 @@
               $city = $_POST['city'];
               $address = $_POST['address'];
               $order_cost = $_SESSION['total']; //  $_SESSION['total'] is where the total was stored
-              $order_status = "on_hold";
+              $order_status = "not paid";
               $user_id = $_SESSION['user_id'] ;
               $order_date = date('Y-m-d H:i:s');
 

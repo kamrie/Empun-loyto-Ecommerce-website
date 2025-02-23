@@ -210,6 +210,7 @@
                 </td>
                 <td>
                     <form method="POST" action="order_details.php">
+                       <input type="hidden" value="<?php echo $row['order_status'];?>" name="order_status">
                         <input type="hidden" value="<?php echo $row['order_id'];?>" name="order_id">
                         <input class="btn order-details-btn" type="submit" name="order_details_btn" value="details">
                      </form>
