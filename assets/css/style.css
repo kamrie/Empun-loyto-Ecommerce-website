@@ -436,3 +436,10 @@ footer .copyright img{
         margin: 20px 5px 10px 20px;
     }
 }
+
+@media (min-width: 992px) { /* For large screens and up, , each element with the class .five-grid should take up 20% of the row’s width */
+    .five-grid {
+        /* flex: 0 0 20%; */
+        max-width: 20%;
+    }
+}
