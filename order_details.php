@@ -82,7 +82,7 @@
 
 
         <?php if( $order_status == "not paid") {?>
-               <form style="float: right;" action="">
+               <form style="float: right;" method="POST" action="payment.php">
                   <input type="submit" class="btn btn-primary" value="Pay Now">
                </form>
         <?php } ?>
