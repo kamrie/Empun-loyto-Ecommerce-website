@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if( !empty($_SESSION['cart']) && isset($_POST['checkout'])) {   //if the session is not empty and it user came to the checkout page throught the checkout button or through an external link
+    if( !empty($_SESSION['cart'])) {   //if the session is not empty and it user came to the checkout page throught the checkout button or through an external link
       // echo "<p>Your cart is empty. <a href='index.php'>Continue Shopping</a></p>";
     }else{
 
@@ -36,7 +36,16 @@
         </div>
         <div class="mx-auto container">
             <form action="server/place_order.php" method="POST"  id="checkout-form">
-                <div class="form-group checkout-small-element">
+             
+              <p class="text-center" style="color:red;">
+                <?php if(isset($_GET['message'])){ echo $_GET['message'];}?>
+                <?php if(isset($_GET['message'])) {?>
+
+                  <a class="btn btn-primary" href="login.php">Login</a>
+                <?php } ?>
+
+              </p>
+            <div class="form-group checkout-small-element">
                     <label for="">Name</label>
                     <input type="text" class="form-control" id="checkout-name" name="name" placeholder="Name" required>
                 </div>
