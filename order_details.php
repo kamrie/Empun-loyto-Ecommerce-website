@@ -18,11 +18,32 @@
         $stmt->execute();
 
         $order_details = $stmt->get_result();
+
+        $order_total_price = calculateTotalOrderPrice($order_details);
     }else{
         header('location: account.php');
         exit;
     }
 
+
+    
+function calculateTotalOrderPrice($order_details){
+    $total = 0;
+
+   foreach( $order_details as $row){ 
+         
+        $product_price =   $row['product_price'];
+        $product_quantity =   $row['product_quantity'];
+
+        $total +=    $product_price * $product_quantity;
+
+    }
+  
+      return $total;
+    
+   
+  }
+  
 ?>
 
 
@@ -48,7 +69,7 @@
      <?php if ($order_details->num_rows > 0) { ?>
               
   
-          <?php while($row = $order_details->fetch_assoc()){ ?>
+          <?php foreach( $order_details as $row){ ?>
                 <tr>
                     <td>
                         <div class="product-info">
@@ -83,7 +104,10 @@
 
         <?php if( $order_status == "not paid") {?>
                <form style="float: right;" method="POST" action="payment.php">
-                  <input type="submit" class="btn btn-primary" value="Pay Now">
+                  <input type="hidden" name="order_total_price" value="<?php echo $order_total_price; ?>"  />
+                  <input type="hidden" name="order_status" value="<?php echo $order_status; ?>"  />
+
+                  <input type="submit" name="order_pay_btn" class="btn btn-primary" value="Pay Now">
                </form>
         <?php } ?>
    
