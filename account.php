@@ -78,7 +78,7 @@
             <hr class="mx-auto">
             <div class="account-info">
                 <p> <strong>Name:</strong>  <span><?php if(isset($_SESSION['user_name'])) {echo $_SESSION['user_name'];}?></span></p>
-                <p><strong>Email:</strong>  <span><?php if(isset($_SESSION['user_name'])) {echo $_SESSION['user_email'];}?></span></p>
+                <p><strong>Email:</strong>  <span><?php if(isset($_SESSION['user_email'])) {echo $_SESSION['user_email'];}?></span></p>
                 <p><a href="#orders" id="orders-btn">Your orders</a></p>
                 <p><a href="account.php?logout=1" id="logout-btn">Logout</a></p>
             </div>
