@@ -8,13 +8,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#index.php">
+                <a class="nav-link" href="/admin/index.php">
                     <span data-feather="file"></span>
                     Orders
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#products.php">
+                <a class="nav-link" href="/admin/products.php">
                     <span data-feather="shopping-cart"></span>
                     Products
                 </a>
