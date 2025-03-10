@@ -78,11 +78,20 @@
 
               <h2> Products</h2>
 
+                 <!-- display of get request message for edit -->
                  <?php if(isset($_GET['edit_success_message'])){ ?>
                     <p class="text-center" style="color: green;"> <?php echo $_GET['edit_success_message']?> </p>
                  <?php } ?>
                  <?php if(isset($_GET['edit_failure_message'])){ ?>
                     <p class="text-center" style="color: red;"> <?php echo $_GET['edit_failure_message']?> </p>
+                 <?php } ?>
+
+                 <!-- display of get request message for deleting -->
+                 <?php if(isset($_GET['deleted_successfully'])){ ?>
+                    <p class="text-center" style="color: green;"> <?php echo $_GET['deleted_successfully']?> </p>
+                 <?php } ?>
+                 <?php if(isset($_GET['deleted_failure'])){ ?>
+                    <p class="text-center" style="color: red;"> <?php echo $_GET['deleted_failure']?> </p>
                  <?php } ?>
 
 
@@ -113,7 +122,7 @@
                                 <td><?php echo $product['product_special_offer'] . "%"?></td>
                                 <td><?php echo $product['product_color']?></td>
                                 <td><a class="btn btn-primary" href="edit_product.php?product_id=<?php echo $product['product_id']; ?> ">Edit</a></td>
-                                <td><a class="btn btn-danger" href="">Delete</a></td>
+                                <td><a class="btn btn-danger" href="delete_product.php?product_id=<?php echo $product['product_id']; ?> ">Delete</a></td>
                                
                             </tr>
                             <?php } ?>
