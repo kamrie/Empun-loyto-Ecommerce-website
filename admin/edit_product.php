@@ -5,10 +5,10 @@
    if(isset($_GET['product_id'])){
         $product_id = $_GET['product_id'];
        
-        $stmt1 = $conn->prepare("SELECT * FROM products WHERE product_id= ?"); // from admin/products.php page
-        $stmt1->bind_param("i",  $product_id);
-        $stmt1->execute();
-        $products = $stmt1->get_result();               
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_id= ?"); // from admin/products.php page
+        $stmt->bind_param("i",  $product_id);
+        $stmt->execute();
+        $products = $stmt->get_result();               
    }else if(isset($_POST['edit_btn'])){
          
       $product_id = $_POST['product_id'];
