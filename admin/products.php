@@ -45,8 +45,8 @@
             $total_no_of_pages = ceil($total_records / $total_records_per_page);
 
             // 4. get all products
-            $stmt2 = $conn->prepare("SELECT * FROM products LIMIT ?, ?");
-            $stmt2->bind_param("ii", $offset, $total_records_per_page);
+            $stmt2 = $conn->prepare("SELECT * FROM products LIMIT $offset, $total_records_per_page");
+            // $stmt2->bind_param("ii", $offset, $total_records_per_page);
             $stmt2->execute();
             $products = $stmt2->get_result();
 
@@ -77,6 +77,15 @@
                 </div>
 
               <h2> Products</h2>
+
+                 <?php if(isset($_GET['edit_success_message'])){ ?>
+                    <p class="text-center" style="color: green;"> <?php echo $_GET['edit_success_message']?> </p>
+                 <?php } ?>
+                 <?php if(isset($_GET['edit_failure_message'])){ ?>
+                    <p class="text-center" style="color: red;"> <?php echo $_GET['edit_failure_message']?> </p>
+                 <?php } ?>
+
+
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">
                         <thead>
@@ -100,10 +109,10 @@
                                 <td><img src="<?php echo "../assets/imgs/".   $product['product_image']?>" style="width: 70px; height: 70px" alt=""> </td>
                                 <td><?php echo $product['product_name']?></td>
                                 <td> <?php echo "€" . $product['product_price']?></td>
-                                <td><?php echo $product['product_special_offer'] . "%"?></td>
                                 <td><?php echo $product['product_category']?></td>
+                                <td><?php echo $product['product_special_offer'] . "%"?></td>
                                 <td><?php echo $product['product_color']?></td>
-                                <td><a class="btn btn-primary" href="">Edit</a></td>
+                                <td><a class="btn btn-primary" href="edit_product.php?product_id=<?php echo $product['product_id']; ?> ">Edit</a></td>
                                 <td><a class="btn btn-danger" href="">Delete</a></td>
                                
                             </tr>
