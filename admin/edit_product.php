@@ -88,8 +88,8 @@
                             <label>Category</label>
                             <select class="form-select" required name="category">
                                 <option value="bracelets" <?php if($product['product_category'] == "bracelets") echo "selected"; ?> >Bracelets</option>
-                                <option value="Earrings">  <?php if($product['product_category'] == "Earrings") echo "selected"; ?>    Earrings</option>
-                                <option value="Necklaces">  <?php if($product['product_category'] == "necklaces") echo "selected"; ?>    Necklaces</option>
+                                <option value="earrings">  <?php if($product['product_category'] == "Earrings") echo "selected"; ?>    Earrings</option>
+                                <option value="necklaces">  <?php if($product['product_category'] == "necklaces") echo "selected"; ?>    Necklaces</option>
                                 <option value="bangles">  <?php if($product['product_category'] == "bangles") echo "selected"; ?>    Bangle</option>
                                 <option value="rings">  <?php if($product['product_category'] == "rings") echo "selected"; ?>    Rings</option>
                                 <option value="pendants">  <?php if($product['product_category'] == "pendants") echo "selected"; ?>    Pendants</option>

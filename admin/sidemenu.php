@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#add_new_products.php">
+                <a class="nav-link" href="add_products.php">
                     <span data-feather="users"></span>
                    Add New Product
                 </a>

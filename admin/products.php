@@ -94,6 +94,14 @@
                     <p class="text-center" style="color: red;"> <?php echo $_GET['deleted_failure']?> </p>
                  <?php } ?>
 
+                 <!-- display of get request message for creating new products -->
+                 <?php if(isset($_GET['product_created'])){ ?>
+                    <p class="text-center" style="color: green;"> <?php echo $_GET['product_created']?> </p>
+                 <?php } ?>
+                 <?php if(isset($_GET['product_failed'])){ ?>
+                    <p class="text-center" style="color: red;"> <?php echo $_GET['product_failed']?> </p>
+                 <?php } ?>
+
 
                 <div class="table-responsive">
                     <table class="table table-striped table-sm">
