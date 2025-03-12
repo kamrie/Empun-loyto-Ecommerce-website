@@ -1,6 +1,10 @@
+<?php 
+   include('layouts/header.php')
+?>
+
 
 <?php
-session_start();
+// session_start();
 
 function calculateTotal(){
   $total = 0;
@@ -51,7 +55,7 @@ function displayCart() {
     }
 
     echo "</table>";
-    echo "<p><strong>Total: $" . calculateTotal() . "</strong></p>";
+    echo "<p><strong>Total: &euro;" . calculateTotal() . "</strong></p>";
     echo "<a href='actions/clear-cart.php'>Clear Cart</a>";
     
     echo "<br><br>     <form method='POST' action='checkout.php'>
@@ -71,7 +75,6 @@ function displayCart() {
 
 
 
-<?php include('layouts/header.php')?>
 
 
 

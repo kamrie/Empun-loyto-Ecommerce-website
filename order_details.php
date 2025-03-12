@@ -1,4 +1,7 @@
 <?php
+  include('layouts/header.php')?>
+
+<?php
 
    //not paid
    //shipped -after the user has paid
@@ -48,7 +51,6 @@ function calculateTotalOrderPrice($order_details){
 
 
 
-<?php include('layouts/header.php')?>
 
 
     <!-- Order details -->

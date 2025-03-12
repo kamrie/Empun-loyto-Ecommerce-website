@@ -33,6 +33,8 @@
                   $_SESSION['admin_logged_in'] = true;
 
                   //incase of success...
+                //   echo "Login successful! Redirecting..."; // Debug message
+
                   header('location: index.php?login_success=logged in successfully');
 
               }else{

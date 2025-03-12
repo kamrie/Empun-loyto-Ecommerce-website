@@ -6,8 +6,10 @@
 
    //if usee is not logged in
    if(!isset($_SESSION['logged_in'])){
+            $_SESSION['redirect_to'] = '../checkout.php'; // Store the intended page
+
             header('location: ../checkout.php?message=Please login/register to place an order');
-       
+        
    
             // if user is  logged in
    }else{        

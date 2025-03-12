@@ -1,6 +1,5 @@
 <?php
 include("server/connection.php");
-session_start();
 
    if(isset($_GET['product_id'])){ //get the product id through the Get parameter which is product_id
     $product_id = $_GET['product_id'];
