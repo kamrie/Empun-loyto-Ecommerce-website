@@ -8,15 +8,16 @@
 
 function calculateTotal(){
   $total = 0;
+  
 
-  foreach ($_SESSION['cart'] as $item){ //when we do this, each $item automatically represents the Inner array (the product details) rather than the product ID itself,  IF You Want to Access $product_id Too,  you should loop with both key and value like this:  foreach ($_SESSION['cart'] as $product_id => $item).
+  foreach($_SESSION['cart'] as $item){ //when we do this, each $item automatically represents the Inner array (the product details) rather than the product ID itself,  IF You Want to Access $product_id Too,  you should loop with both key and value like this:  foreach ($_SESSION['cart'] as $product_id => $item).
     $total += $item['product_price'] * $item['product_quantity'];
   }
 
   $_SESSION['total'] = $total;
   
   return $_SESSION['total'] ;
-}
+} 
 
 // Function to display the cart
 function displayCart() {

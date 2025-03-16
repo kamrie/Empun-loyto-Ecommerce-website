@@ -9,8 +9,7 @@ session_start();
 
   function addToCart($product_id, $product_image, $product_name, $product_price, $product_quantity = 1){
       if (isset($_SESSION['cart'][$product_id])){           //checks if the product is already in the cart using its product_id. If yes, it should update the quantity.
-
-        $_SESSION['cart'][$product_id]['product_quantity'] += $product_quantity;
+         $_SESSION['cart'][$product_id]['product_quantity'] += $product_quantity;
 
       }else{   //update the session with a new product through its product_id
         $_SESSION['cart'][$product_id] = [

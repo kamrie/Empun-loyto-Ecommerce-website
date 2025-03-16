@@ -83,21 +83,21 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="shop.html">Shop</a>
+                <a class="nav-link" href="shop.php">Shop</a>
               </li>  
               <li class="nav-item">   
                 <a class="nav-link" href="#">Blog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="contact.php">Contact Us</a>
               </li>
 
               <li class="nav-item">
                 <a href="cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
-                <a href="account.html"><i class="fa-solid fa-user"></i></a>
+                <a href="account.php"><i class="fa-solid fa-user"></i></a>
               </li>
             
             </ul>

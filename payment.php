@@ -2,7 +2,7 @@
 
 
 <?php
-    // session_start();
+    // session_start(); 
   
 
     if(isset($_POST['order_pay_btn']) ){ //FROM order_details.php
@@ -39,16 +39,18 @@
         </div>
         <div class="mx-auto container text-center">
 
-             <!-- if total isset which means theres something in the cart -->
-        <?php if(isset($_SESSION['total']) && $_SESSION['total'] != 0 ) { ?>
+                <!-- if the session is empty or didnt add anything to the cart but came to this page buy checking old orders in account.php and clicking on one of the pay button in the order details  -->
+        <?php if(isset($_POST['order_status']) && $_POST['order_status'] == "not paid") { ?>
+              <p>Total payment:  $<?php echo $_POST['order_total_price']; ?> </p>
+                <input class="btn btn-primary" type="submit" value="Pay Now">
+
+
+             <!-- if total isset which means theres something in the cart. It will check first if the cart is not empty-->
+        <?php } else if(isset($_SESSION['total']) && $_SESSION['total'] != 0 ) { ?>
               <p>Total payment:  $ <?php echo $_SESSION['total']; ?> </p>
                <input class="btn btn-primary" type="submit" value="Pay Now" />
 
-               <!-- if the session is empty or didnt add anything to the cart but came to this page buy checking old orders in account.php and clicking on one of the pay button in the order details  -->
-        <?php } else if(isset($_POST['order_status']) && $_POST['order_status'] == "not paid") { ?>
-            <p>Total payment:  $<?php echo $_POST['order_total_price']; ?> </p>
-              <input class="btn btn-primary" type="submit" value="Pay Now">
-
+       
         <?php } else  { ?>
             <p>You dont have an order</p>
 
