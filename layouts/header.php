@@ -41,7 +41,13 @@
               </li>
 
               <li class="nav-item">
-                <a href="cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
+                <a href="cart.php">
+                   <i class="fa-solid fa-bag-shopping">
+                     <?php if(isset($_SESSION['quantity']) && $_SESSION['quantity'] != 0 && !empty($_SESSION['cart']) ) { ?>
+                        <span class="cart-quantity" ><?php echo $_SESSION['quantity']  ?></span>
+                      <?php } ?>
+                   </i>
+                </a>
                 <a href="account.php"><i class="fa-solid fa-user"></i></a>
               </li>
             
