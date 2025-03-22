@@ -66,13 +66,114 @@ button:hover{
 }
 .navbar{
     font-size: 16px;
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
     top: 0;
     left: 0;
     box-shadow: var(--shadow-color) ;
 }
+.navbar .container-nav {
+  /* display: none; */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+}
 
+.logo{
+    width: 72px;
+    height: 72epx;
+}
+.navbar .brand{
+    color: var(--text-color);
+    margin: 3px 5px;
+   font-size: 1.5rem;
+}
+.nav-wrapper{
+    /* display: none; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    
+}
+/* .nav-sections {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+} */
+
+
+/* page navigation  */
+
+  .nav-menu {
+    display: flex;
+    gap: 8rem;
+    align-items: center;
+    /* font-family: 'Georgia', serif; */
+    font-family: 'Poppins', sans-serif ;
+    font-weight: bold;
+    /* padding-left: 14rem; */
+  }
+  .categories-div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+/* flex-direction: column; */
+}
+  .nav-menu li {
+    position: relative;
+    list-style: none;
+  }
+  .nav-menu li a {
+    text-decoration: none;
+    color: #000;
+    position: relative;
+  }
+  .hot-badge {
+    background: red;
+    color: white;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 10px;
+    position: absolute;
+    top: -10px;
+    right: -20px;
+  }
+  .arrow-down {
+    border: solid black;
+    border-width: 0 1.5px 1.5px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 5px;
+    transform: rotate(45deg);
+  }
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    padding: 15px;
+    z-index: 999;
+    min-width: 180px;
+  }
+  .dropdown li {
+    padding: 8px 0;
+  }
+  .dropdown li strong {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .nav-menu li:hover .dropdown {
+    display: block;
+  }
+
+
+  
  .navbar-nav .nav-link{
 
     padding: 0 20px;
@@ -98,6 +199,8 @@ button:hover{
 .navbar-nav .nav-item{
     display: flex;
 }
+
+
 .cart-quantity{
     background-color: var(--text-color);
     color: var(--background-light) ;
@@ -107,7 +210,35 @@ button:hover{
     font-size:13px;
     text-decoration: none;
 }
+/* end of the nav section */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* home section */
 #home{
     background-image: url(../imgs/bangle\ 1.webp) ;
     width: 100% ;
@@ -176,7 +307,7 @@ button:hover{
 /* product class */
 .product{
     cursor: pointer;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 .product img{
     transition: .3s  all;
@@ -197,9 +328,38 @@ button:hover{
     transition: 0.3s all;
 }
 .product:hover .buy-btn{
-   transform: translateY(0px); /*when you hover, it goes from the translateY of 50px to 0px */
+   transform: translateY(10px); /*when you hover, it goes from the translateY of 50px to 0px */
    opacity: 1;
 }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .category-item {
+    text-decoration: none;
+    color: #000;
+  }
+  .category-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    padding: 5px;
+    transition: transform 0.3s;
+  }
+  .category-item:hover img{
+    transform: scale(1.05);
+  }
+  .category-title {
+    /* margin-top: 10px; */
+    /* font-size: 14px; */
+  }
 
 hr{
     width: 30px;
@@ -283,16 +443,6 @@ footer .copyright img{
     width: ;
 }
 
-
-.logo{
-    width: 72px;
-    height: 72epx;
-}
-.navbar .brand{
-    color: var(--text-color);
-    margin: 3px 5px;
-   font-size: 1.5rem;
-}
 
 
 /* Login */
@@ -396,6 +546,7 @@ footer .copyright img{
 
 
 
+
 /* Checkout */
 #checkout-form .checkout-small-element{
     display: inline-block;
@@ -422,6 +573,10 @@ footer .copyright img{
 }
 
 
+/* categories */
+#categories{
+    margin-top: 8rem!important;
+}
 
 
 
@@ -431,8 +586,7 @@ footer .copyright img{
 
 
 
-
-@media only screen and ( max-width: 990px) {
+@media only screen and ( max-width: 990px){
     .nav-buttons{
         margin: 10px;
     }
@@ -445,11 +599,26 @@ footer .copyright img{
     .nav-buttons ul .fa-solid{
         margin: 20px 5px 10px 20px;
     }
+
+      .nav-menu{
+       flex-direction: column;
+        gap: 1rem; /*reduces the gap that was given inistially*/
+        align-items: center;
+      }
+     .categories-div{
+       flex-direction: column;
+        /* justify-content: space-between; */
+        gap: 1rem;
+        /* align-items: center; */
+     }
 }
+
 
 @media (min-width: 992px) { /* For large screens and up, , each element with the class .five-grid should take up 20% of the row’s width */
     .five-grid {
         /* flex: 0 0 20%; */
         max-width: 20%;
     }
+    
+    
 }

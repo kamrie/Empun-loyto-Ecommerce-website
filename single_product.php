@@ -33,7 +33,7 @@ include("server/connection.php");
       <div class="row mt-5">
         <?php while($row = $product->fetch_assoc()){ ?>
 
-            <div class="col-lg-5 col-md-6 col-sm-12">
+            <div class=" single-product col-lg-5 col-md-6 col-sm-12">
                   <img class="img-fluid w-100 pb-1" src="assets/imgs/<?php echo $row['product_image']; ?>" id="mainImg" alt="">
                 <!-- smaller varities to the main products -->
                   <div class="small-img-group">
@@ -146,11 +146,10 @@ include("server/connection.php");
            <button class="buy-btn"> Buy Now</button>
          </div>
       </div>
-   </section>
+     </section>
 
 
 
-
-
+<script src="/assets/js/main.js"></script>
 <?php include('layouts/footer.php')?>
 

@@ -118,31 +118,31 @@
                             <form action="shop.php" method="POST">
                                 <p>Category</p>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="Bracelets" type="radio" name="category" id="category_one" checked>
+                                    <input class="form-check-input" value="bracelets" type="radio" name="category" id="category_one" checked>
                                     <label class="form-check-label" for="category_one"> Bracelets </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="Earrings" type="radio" name="category" id="category_two">
+                                    <input class="form-check-input" value="earrings" type="radio" name="category" id="category_two">
                                     <label class="form-check-label" for="category_two"> Earrings </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="Necklaces" type="radio" name="category" id="category_three">
+                                    <input class="form-check-input" value="necklaces" type="radio" name="category" id="category_three">
                                     <label class="form-check-label" for="category_three"> Necklaces </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="Bangle" type="radio" name="category" id="category_four">
+                                    <input class="form-check-input" value="bangles" type="radio" name="category" id="category_four">
                                     <label class="form-check-label" for="category_four"> Bangle </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="Rings" type="radio" name="category" id="category_five">
+                                    <input class="form-check-input" value="rings" type="radio" name="category" id="category_five">
                                     <label class="form-check-label" for="category_five"> Rings </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="Pendants" type="radio" name="category" id="category_six">
+                                    <input class="form-check-input" value="pendants" type="radio" name="category" id="category_six">
                                     <label class="form-check-label" for="category_six"> Pendants </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" value="Chains" type="radio" name="category" id="category_seven">
+                                    <input class="form-check-input" value="chains" type="radio" name="category" id="category_seven">
                                     <label class="form-check-label" for="category_seven"> Chains </label>
                                 </div>
 
@@ -164,7 +164,7 @@
                  
                     </div>
                 <!-- Right Section: Products -->
-                    <div class="col-lg-9">
+                      <div class="col-lg-9">
                             <h3>Our Products</h3>
                             <hr>
                             <p>Here you can check out our featured products</p>
