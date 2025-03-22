@@ -40,7 +40,7 @@
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="nav-menu me-auto mb-2 mb-lg-0">
       
-       
+        
               <div class=" categories-div    ">
 
                       <!-- Categories -->
