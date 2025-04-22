@@ -1,8 +1,5 @@
-<?php include('layouts/header.php')?>
-
-
 <?php
-    // session_start();
+    session_start(); 
 
     if( !empty($_SESSION['cart'])) {   //if the session is not empty and it user came to the checkout page throught the checkout button or through an external link
       // echo "<p>Your cart is empty. <a href='index.php'>Continue Shopping</a></p>";
@@ -25,6 +22,9 @@
 
 ?>
 
+
+
+<?php include('layouts/header.php')?>
 
 
 

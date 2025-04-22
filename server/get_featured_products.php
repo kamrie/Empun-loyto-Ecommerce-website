@@ -1,7 +1,7 @@
 <?php
  include('connection.php'); 
 
- $stmt =  $conn->prepare("SELECT * FROM products ORDER BY product_id DESC LIMIT 30");  //ORDER BY id DESC means "order by the id column in descending order" (from highest id to lowest id).
+ $stmt =  $conn->prepare("SELECT * FROM products ORDER BY product_id DESC  ");  //ORDER BY id DESC means "order by the id column in descending order".
 
  $stmt->execute();
 
@@ -13,3 +13,11 @@
 
 
 ?>
+
+
+
+
+
+
+
+

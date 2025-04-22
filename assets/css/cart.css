@@ -12,6 +12,11 @@
 }
 
 
+body {
+    overflow-x: hidden;
+}
+
+
 
 .cart table{
    width: 100%;
@@ -24,30 +29,64 @@
 
 .cart th{
     text-align: left;
-    padding: 5px 10px;
+    padding: 5px 11px;
     color: var(--background-light);
-   background-color: var(--text-color-orange);
+   background-color: var(--text-color);
 }
 .cart td{
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 .cart td img{
     width: 80px;
     height: 80px;
     margin-right: 10px ;
 }
+
+.cart .td-form{
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* gap: 3px; */
+   }
+
 .cart td input{
-    width: 40px;
+    /* width: 40px; */
     height: 30px;
     padding: 5px;
 }
+
+/* .cart input[name='product_quantity'] {
+    width: 112%;
+} */
+.backToHome-et-checkout{
+    float: right;
+     display: flex;
+     justify-content:center; 
+     align-items:center;
+     gap: 7px 
+}
+.cart .nav-link{
+    background: var(--background-light); 
+    color: var(--text-color); 
+    padding: 10px 20px;
+    border: solid var(--text-color);
+    border-radius: 5px;
+}
+
+.cart input[name='checkout'] {
+    background: rgb(178, 154, 17); 
+    color: white; 
+    padding: 10px 20px;
+    border:solid var(--background-light);
+    border-radius: 5px;
+}
+
 .cart td a{
     color: var(--text-color-orange);
 }
 .cart .remove-btn{
     color: var(--text-color-orange);
-    text-decoration: none;
-    font-size: 14px;
+    background: var(--text-color);
+     color:var(--background-light);
 }
 .cart .edit-btn{
     color: var(--text-color-orange);
@@ -82,3 +121,54 @@ th:last-child{
     background-color: var(--text-color-orange);
     color: var(--background-light);
 }
+
+
+
+
+@media only screen and ( max-width: 765px){
+   /* .cart{
+    display: none;
+   } */
+
+   /* .cart input[name='product_quantity'] {
+    width: 112%;
+ } */
+ .td-form{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+   }
+   /* td .td-price{
+   
+    }  */
+}
+
+
+
+
+/* Making the input responsive */
+@media ( min-width: 412px){
+    .cart input[name='product_quantity'] {
+     width: 56.5%;
+   }
+   .cart td{
+    padding: 8px 1px;
+   }
+ 
+ }
+@media ( min-width: 766px){
+  
+    .cart input[name='product_quantity'] {
+     width: 31%;
+   }
+ }
+@media ( min-width: 994px){
+    .cart input[name='product_quantity'] {
+     width: 13%;
+   }
+ }
+@media ( min-width: 1403px){
+    .cart input[name='product_quantity'] {
+     width: 9.5%;
+   }
+ }

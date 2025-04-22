@@ -34,6 +34,9 @@
     }
 ?>
 
+
+
+
 <div class="container-fluid">
     <div class="row" style="min-height: 1000px">
 
@@ -44,9 +47,13 @@
                 <h1 class="h2">Dashboard</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
+                      <a href="<?php echo isset($_SESSION['last_page']) ? $_SESSION['last_page'] : 'index.php'; ?>" class="btn btn-primary">
+                            Back
+                        </a>
                     </div>
                 </div>
             </div>
+
 
             <h2>Edit Order</h2>
             <div class="table-responsive">
@@ -89,7 +96,7 @@
                         </div>
 
                                 <div class="form-group mt-3">
-                                    <input type="submit" class="btn btn-primary" name="edit_order" value="Edit"/>
+                                    <input type="submit" class="btn btn-primary" name="edit_order" value="Update"/>
                                 </div>
                       <?php } ?>
 

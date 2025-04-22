@@ -1,4 +1,18 @@
-<?php  session_start();?>
+<?php
+
+session_start();
+
+// Save last visited page except for logout
+// if (!isset($_SESSION['last_page']) || $_SESSION['last_page'] !== $_SERVER['REQUEST_URI'])  {
+//     $_SESSION['last_page'] = $_SERVER['REQUEST_URI'];
+// }
+
+if (isset($_SERVER['HTTP_REFERER'])) {
+    $_SESSION['last_page'] = $_SERVER['HTTP_REFERER']; //gets the actual previous page.
+}
+
+
+?>
 
 <?php  include('../server/connection.php');  ?>
 

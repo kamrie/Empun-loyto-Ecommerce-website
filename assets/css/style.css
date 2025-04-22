@@ -78,7 +78,7 @@ button:hover{
   /* justify-content: center; */
   align-items: center;
   justify-content: space-between;
-  gap: 100px;
+  gap: 13px; /*na here*/
 }
 
 .logo{
@@ -312,6 +312,10 @@ button:hover{
 .product img{
     transition: .3s  all;
 }
+.product a{
+    text-decoration: none;
+    color: var(--background-color);
+}
 
 .product:hover img{      /*if you hover on the product class, it gives the image the opacity*/
   opacity: 0.7;
@@ -322,7 +326,7 @@ button:hover{
 }
 
 .product .buy-btn{
-    background-color: var(--text-color-orange);
+    background-color: var(--text-color);
     transform: translateY(50px);
     opacity: 0;
     transition: 0.3s all;
@@ -447,7 +451,7 @@ footer .copyright img{
 
 /* Login */
 #login-form{
-    width: 50%;
+    width: 70%;
     margin: 5px auto;
     text-align: center;
     padding: 20px;
@@ -611,6 +615,14 @@ footer .copyright img{
         gap: 1rem;
         /* align-items: center; */
      }
+     #login-form input{
+        width: 120%;
+        margin: 5px auto;
+     }
+     #login-form input{
+    /* width: 50%; */
+    /* margin: 5px auto; */
+}
 }
 
 
@@ -619,6 +631,4 @@ footer .copyright img{
         /* flex: 0 0 20%; */
         max-width: 20%;
     }
-    
-    
 }

@@ -18,6 +18,9 @@ if (!isset($_SESSION['admin_logged_in'])) {
                 <h1 class="h2">Help</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <div class="btn-group me-2">
+                      <a href="<?php echo isset($_SESSION['last_page']) ? $_SESSION['last_page'] : 'index.php'; ?>" class="btn btn-primary">
+                            Back
+                        </a>
                     </div>
                 </div>
             </div>

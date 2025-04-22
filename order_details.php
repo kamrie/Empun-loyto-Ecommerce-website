@@ -1,3 +1,8 @@
+<?php 
+session_start();
+    include("cart.php");
+    calculateTotal();
+?>
 <?php
   include('layouts/header.php')?>
 

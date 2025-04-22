@@ -34,10 +34,11 @@
     outline: none;
 }
 .single-product .buy-btn{
-background-color: var(--text-color-orange);
+background-color: var(--text-color);
 opacity: 1;
 transition: 0.4s all;
 }
 .single-product .buy-btn:hover{
     background-color: var(--background-color) ;
 }
+

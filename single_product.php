@@ -4,30 +4,41 @@ include("server/connection.php");
    if(isset($_GET['product_id'])){ //get the product id through the Get parameter which is product_id
     $product_id = $_GET['product_id'];
     
-    $stmt =  $conn->prepare("SELECT * FROM products WHERE product_id = ? ");  //WHERE product_id = ? means where product_id is unique
-      $stmt->bind_param("i",  $product_id); //i means interger
 
+
+    $stmt =  $conn->prepare("SELECT * FROM products WHERE product_id = ? ");  
+      $stmt->bind_param("i",  $product_id); 
       $stmt->execute();
-    
-      $product=  $stmt->get_result();  //$featured_products variable is an array
+      $product=  $stmt->get_result(); 
+
+
+          // Fetch related products (same category, excluding current product)
+          //product_category = (SELECT product_category FROM products WHERE product_id = ?) finds the category of the current product.
+
+
+        $related_stmt = $conn->prepare("
+        SELECT * FROM products  WHERE product_category = (SELECT product_category FROM products WHERE product_id = ?) 
+        AND product_id != ?   
+        ORDER BY RAND() 
+        LIMIT 5
+    ");
+      $related_stmt->bind_param("ii", $product_id, $product_id);
+      $related_stmt->execute();
+      $related_products = $related_stmt->get_result();
 
 
    }else{
-      header('location: index.php'); // if we dont have it, take us to the home page
-
+      header('location: index.php');
    }
-
 
 ?>
 
 
 
 
-
 <?php include('layouts/header.php')?>
 
-
-
+  
    <!-- Single product -->
   <section class="container single-product my-5 pt-5">
       <div class="row mt-5">
@@ -77,76 +88,68 @@ include("server/connection.php");
             </div>
 
           </form> 
-
           <?php } ?>
 
 
+            <div class='backToHome-et-checkout mt-5 '   >
+                      <div class='cart'> 
+                       <a class='nav-link' href='index.php'>Continue shopping</a> 
+                       </div>  
+
+                       <!-- <div>   
+                             <form method='POST' action='checkout.php'>
+                                <input type='submit' name='checkout' value='Proceed to checkout' style=''>
+                            </form> 
+                       </div> -->
+             </div>       
+
+
+
       </div>
 
+
+      
   </section>
 
 
-     <!-- Related Productss -->
-     <section id="related-products" class="my-5 pb-5">
-      <div class="container text-center mt-5 py-5">
-           <h3>Related Products</h3>
-           <hr class="mx-auto"> <!-- mx-auto centers the line   -->
-      </div>
-      <div class="row mx-auto container-fluid">
-         <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-            <img class="img-fluid mb-3" src="assets/imgs/featured 1.webp" alt="">
-            <div class="star">
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
-               <i class="fas fa-star"></i>
+
+
+
+
+
+
+
+     <!-- Related Products Section -->
+<section id="related-products" class="my-5 pb-5">
+    <div class="container text-center mt-5 py-5">
+        <h3>Related Products</h3>
+        <hr class="mx-auto">
+    </div>
+    <div class="row mx-auto container-fluid">
+        <?php while ($row = $related_products->fetch_assoc()) { ?>
+            <div class="product text-center five-grid col-md-4 col-sm-6 col-6">
+            <a href="<?php echo "single_product.php?product_id=" . $row['product_id'];?>">
+                <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" alt="">
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h5 class="p-name"><?php echo $row['product_name']; ?></h5>
+                <h4 class="p-price">&euro;<?php echo number_format($row['product_price']); ?></h4>
+              </a> 
+ 
+                <a href="single_product.php?product_id=<?php echo $row['product_id']; ?>" class="buy-btn">
+                  <button class="buy-btn"> Buy Now</button>
+                </a>
             </div>
-            <h5 class="p-name"> Golden necklace</h5>
-            <h4 class="p-price"> $199.8</h4>
-            <button class="buy-btn"> Buy Now</button>
-         </div>
-         <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-           <img class="img-fluid mb-3" src="assets/imgs/featured 2.webp" alt="">
-           <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-           </div>
-           <h5 class="p-name"> Golden necklace</h5>
-           <h4 class="p-price"> $199.8</h4>
-           <button class="buy-btn"> Buy Now</button>
-        </div>
-        <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-          <img class="img-fluid mb-3" src="assets/imgs/featured 3.webp" alt="">
-           <div class="star">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-           </div>
-         <h5 class="p-name"> Golden necklace</h5>
-         <h4 class="p-price"> $199.8</h4>
-         <button class="buy-btn"> Buy Now</button>
-       </div>
-         <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-           <img class="img-fluid mb-3" src="assets/imgs/featured 4.webp" alt="">
-           <div class="star">
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-             <i class="fas fa-star"></i>
-           </div>
-           <h5 class="p-name"> Golden necklace</h5>
-           <h4 class="p-price"> $199.8</h4>
-           <button class="buy-btn"> Buy Now</button>
-         </div>
-      </div>
-     </section>
+        <?php } ?>
+    </div>
+</section>
+
+
 
 
 

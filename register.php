@@ -46,7 +46,6 @@ if(isset($_POST['register'])){
 
                       $stmt->bind_param('sss', $name,$email,md5($password)); //md5() hashes the password
 
-
                       //if account was created successfully
                       if($stmt->execute()){
 
@@ -58,7 +57,7 @@ if(isset($_POST['register'])){
                             header('location: account.php?register_success=You registered successfully');
                     
                       }else{ //account could not be created
-                              header('location: register.php?error=could not create an accout at the moment');
+                              header('location: register.php?error=could not create an account at the moment');
                       }
                 }
 

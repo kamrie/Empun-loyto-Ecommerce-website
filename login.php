@@ -1,7 +1,6 @@
-<?php include('layouts/header.php')?>;y
 
 <?php
-    // session_start();
+    session_start();
 
     include('server/connection.php');
 
@@ -57,10 +56,11 @@
 
 
 
+<?php include('layouts/header.php')?>;
 
 
 
-      <!-- login -->
+      <!-- login -->   
       <section class="my-5 py-5">
           <div class="container text-center mt-3 pt-5">
               <h2 class="form-weight-bold">Login</h2>

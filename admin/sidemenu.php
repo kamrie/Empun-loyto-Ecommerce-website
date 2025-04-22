@@ -33,11 +33,17 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="users_page.php">Admin Users</a></li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="help.php">
                     <span data-feather="layers"></span>
                    Help
                 </a>
             </li>
+           
         </ul>
     </div>
 </nav>
+
+

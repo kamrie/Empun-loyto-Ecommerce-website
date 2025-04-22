@@ -100,37 +100,43 @@
 
          <?php while($row=  $featured_products->fetch_assoc()){ ?>
 
-          <div class="product text-center five-grid col-md-4 col-sm-6">
-             <img class="img-fluid mb-3" src="assets/imgs/<?php echo $row['product_image']; ?>" id="mainImg" />
-             <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-             </div>
-             <h5 class="p-name"> <?php echo $row['product_name']; ?></h5>
-             <h4 class="p-price"> $<?php echo $row['product_price']; ?></h4>
-
-             <!-- smaller varities to the main products -->
-             <div class="small-img-group">
-                      <div class="small-img-col">
-                        <img src="assets/imgs/<?php echo $row['product_image']; ?>" width="100%" class="small-img" alt="">
-                      </div>
-                      <div class="small-img-col">
-                        <img src="assets/imgs/<?php echo $row['product_image2']; ?>" width="100%" class="small-img" alt="">
-                      </div>
-                      <div class="small-img-col">
-                        <img src="assets/imgs/<?php echo $row['product_image3']; ?>" width="100%" class="small-img" alt="">
-                      </div>
-                      <div class="small-img-col">
-                        <img src="assets/imgs/<?php echo $row['product_image4']; ?>" width="100%" class="small-img" alt="">
-                      </div>
-
-                  </div>
            
-             
-              <a href="<?php echo "single_product.php?product_id=" . $row['product_id'];?>"><button class="buy-btn"> Buy Now</button></a> 
+
+          <div class="product text-center five-grid col-md-4 col-sm-6 col-6">
+             <a href="<?php echo "single_product.php?product_id=" . $row['product_id'];?>">
+                     <img class="img-fluid mb-3 rounded-3" src="assets/imgs/<?php echo $row['product_image']; ?>" id="mainImg" />
+                  <div class="star">
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                     <i class="fas fa-star"></i>
+                  </div>
+                  <h5 class="p-name"> <?php echo $row['product_name']; ?></h5>
+                  <h4 class="p-price"> $<?php echo $row['product_price']; ?></h4>
+
+            </a> 
+                  <!-- smaller varities to the main products -->
+                     <div class="small-img-group">
+                           <div class="small-img-col">
+                              <img src="assets/imgs/<?php echo $row['product_image']; ?>" width="100%" class="small-img" alt="">
+                           </div>
+                           <div class="small-img-col">
+                              <img src="assets/imgs/<?php echo $row['product_image2']; ?>" width="100%" class="small-img" alt="">
+                           </div>
+                           <div class="small-img-col">
+                              <img src="assets/imgs/<?php echo $row['product_image3']; ?>" width="100%" class="small-img" alt="">
+                           </div>
+                           <div class="small-img-col">
+                              <img src="assets/imgs/<?php echo $row['product_image4']; ?>" width="100%" class="small-img" alt="">
+                           </div>
+
+                     </div>
+
+                                 <a href="<?php echo "single_product.php?product_id=" . $row['product_id'];?>"><button class="buy-btn"> Buy Now</button></a> 
+
+           
+           
           </div>
           
 

@@ -20,7 +20,7 @@
             // --------------------------------- 
 
             // 1. determine page number
-            if (isset($_GET['page_no']) && $_GET['page_no'] != "") {
+            if (isset($_GET['page_no']) && $_GET['page_no'] != "") {  //if page no is set and its not equal to zero
                 // If user has already entered a page, then page number is the one they selected
                 $page_no = $_GET['page_no'];
             } else {
@@ -28,7 +28,7 @@
                 $page_no = 1;
             }
 
-            // 2. return number of products
+            // 2. return number of orders
             $stmt1 = $conn->prepare("SELECT COUNT(*) AS total_records FROM orders");
             $stmt1->execute();
             $stmt1->bind_result($total_records);
@@ -74,11 +74,19 @@
                     <h1 class="h2">Dashboard</h1>
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
+                            <a href="<?php echo isset($_SESSION['last_page']) ? $_SESSION['last_page'] : 'index.php'; ?>" class="btn btn-primary">
+                                Back
+                            </a>        
                         </div>
                     </div>
                 </div>
 
+              
+                
               <h2>Orders</h2>
+                <p> <strong>Name:</strong>  <span><?php if(isset($_SESSION['admin_name'])) {echo $_SESSION['admin_name'];}?></span></p>
+                <p><strong>Email:</strong>  <span><?php if(isset($_SESSION['admin_email'])) {echo $_SESSION['admin_email'];}?></span></p>
+                
 
                 <?php if(isset($_GET['order_updated'])){ ?>
                     <p class="text-center" style="color: green;"> <?php echo $_GET['order_updated']?> </p>
@@ -86,6 +94,12 @@
 
                  <?php if(isset($_GET['order_failed'])){ ?>
                     <p class="text-center" style="color: red;"> <?php echo $_GET['order_failed']?> </p>
+                 <?php } ?>
+                 <?php if(isset($_GET['login_success'])){ ?>
+                    <p class="text-center" style="color: green;"> <?php echo $_GET['login_success']?> </p>
+                 <?php } ?>
+                 <?php if(isset($_GET['register_success'])){ ?>
+                    <p class="text-center" style="color: green;"> <?php echo $_GET['register_success']?> </p>
                  <?php } ?>
 
 
@@ -134,11 +148,20 @@
                       <!-- Pagination -->
                       <nav aria-label="Page navigation example">
                                 <ul class="pagination mt-5 justify-content-center">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    <li class="page-item  <?php if($page_no<=1) {echo 'disabled';}?>">
+                                        <a class="page-link" href="<?php if($page_no<=1) {echo '#';}else{echo "?page_no=".($page_no-1);}?>">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="?page_no=1">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="?page_no=2">2</a></li>
+
+                                    <?php if( $page_no >= 3) {?>
+                                    <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                    <li class="page-item"><a class="page-link" href="<?php echo "?page_no=". $page_no;?>"><?php echo $page_no;?></a></li>
+                                    <?php }?>
+
+                                    <li class="page-item <?php if($page_no>= $total_no_of_pages){echo 'disabled';}?>">
+                                        <a class="page-link" href="<?php if($page_no>= $total_no_of_pages){echo '#';} else{echo "?page_no=". ($page_no+1);}?>">Next</a>
+                                    </li>
                                 </ul>
                      </nav>
                 </div>

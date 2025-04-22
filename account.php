@@ -1,8 +1,6 @@
-<?php include('layouts/header.php')?>
-
-
 <?php
-//   session_start();
+  session_start();
+  
 
   include('server/connection.php');
 
@@ -64,6 +62,9 @@
 
 
 
+<?php include('layouts/header.php')?>
+
+
 
 
 
@@ -91,7 +92,7 @@
                 <p style="color:red" class="text-center"> <?php if(isset($_GET['error'])){ echo $_GET['error'];} ?> </p>
                 <p style="color:green" class="text-center"> <?php if(isset($_GET['message'])){ echo $_GET['message'];} ?> </p>
 
-              <h3>Change Password</h3>
+                <h3>Change Password</h3>
                 <hr class="mx-auto">
                 <div class="form-group">
                     <label for="">Password</label>
