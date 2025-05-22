@@ -1,10 +1,4 @@
-<?php 
-session_start();
-    include("cart.php");
-    calculateTotal();
-?>
-<?php
-  include('layouts/header.php')?>
+
 
 <?php
 
@@ -32,7 +26,7 @@ session_start();
         header('location: account.php');
         exit;
     }
-
+    // SELECT SUM(product_price * product_quantity) AS total_price FROM order_items WHERE order_id = ?
 
     
 function calculateTotalOrderPrice($order_details){
@@ -56,7 +50,8 @@ function calculateTotalOrderPrice($order_details){
 
 
 
-
+    <?php
+     include('layouts/header.php')?>
 
     <!-- Order details -->
   <section id="orders" class="orders container my-5 py-3 ">

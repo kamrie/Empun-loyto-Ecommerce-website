@@ -83,12 +83,12 @@ button:hover{
 
 .logo{
     width: 72px;
-    height: 72epx;
+    height: 72px;
 }
 .navbar .brand{
     color: var(--text-color);
     margin: 3px 5px;
-   font-size: 1.5rem;
+   font-size: 1.1rem;
 }
 .nav-wrapper{
     /* display: none; */
@@ -427,7 +427,7 @@ footer li a{
     height: 40px;
     width: 40px;
     background-color: var(--background-light);
-    display: inline-block;
+    /* display: inline-block; */
      border-radius: 50%;
      text-align: center;
      line-height: 38px;
@@ -471,7 +471,7 @@ footer .copyright img{
 
 /* Register */
 #register-form{
-    width: 50%;
+    width: 70%;
     margin: 5px auto;
     text-align: center;
     padding: 20px;
@@ -480,6 +480,7 @@ footer .copyright img{
 #register-form input{
     width: 50%;
     margin: 5px auto;
+
 }
 
 #register-form #register-btn{
@@ -488,6 +489,7 @@ footer .copyright img{
 }
 #register-form #login-url{
     color: var(--text-color);
+ 
 }
 
 /* Account */
@@ -619,6 +621,11 @@ footer .copyright img{
         width: 120%;
         margin: 5px auto;
      }
+     #register-form input{
+        width: 120%;
+        margin: 5px auto;
+        
+    }
      #login-form input{
     /* width: 50%; */
     /* margin: 5px auto; */

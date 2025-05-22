@@ -28,11 +28,11 @@
   <div class="container container-nav">
     <!-- Logo -->
     <div class="d-flex align-items-center gap-2">
-      <a class="nav-link" href="index.php">   
-            <img src="assets/imgs/Empun logo.jpg" class="logo" alt="">
-      </a>
+        <a class="nav-link" href="index.php">   
+              <img src="assets/imgs/Empun logo.jpg" class="logo" alt="">
+        </a>
 
-        <h2 class="brand">Mira Bella Koruja</h2>
+        <h2 class="brand ">Mira Bella Koruja</h2>
     </div>
 
     <!-- Toggler -->

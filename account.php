@@ -138,7 +138,7 @@
                     <!-- <div class="product-info">
                             <img src="assets/imgs/featured 1.webp" alt="">
                             <div>
-                                <p class="mt-3"><?php echo $row['order_id'];?></p>
+                                <p class="mt-3"><?php // echo $row['order_id'];?></p>
                             </div>
                     </div> -->
                     <span>
@@ -164,7 +164,7 @@
                     <form method="POST" action="order_details.php">
                        <input type="hidden" value="<?php echo $row['order_status'];?>" name="order_status">
                         <input type="hidden" value="<?php echo $row['order_id'];?>" name="order_id">
-                        <input class="btn order-details-btn" type="submit" name="order_details_btn" value="details">
+                        <button class="btn order-details-btn" type="submit" name="order_details_btn" value="details">details </button>
                      </form>
                 </td>
 

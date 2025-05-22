@@ -4,7 +4,7 @@
    
    include('connection.php');
 
-   //if usee is not logged in
+   //if user is not logged in
    if(!isset($_SESSION['logged_in'])){
             $_SESSION['redirect_to'] = '../checkout.php'; // Store the intended page
 
@@ -69,7 +69,7 @@
                                  VALUES (?,?,?,?,?,?,?,?) ");
                   
                   $stmt1->bind_param('iissiiis',$order_id,$product_id,$product_name,$product_image,$product_price,$product_quantity,$user_id,$order_date );
-                  $stmt1-> execute();
+                  $stmt1->execute();
 
                }
 

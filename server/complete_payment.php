@@ -1,7 +1,7 @@
 <?php
 
 //change order_status to paid
-if(isset)
+// if(isset)
 
 
  
